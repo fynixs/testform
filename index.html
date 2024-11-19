@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Multi-Step Form</title>
+  <!-- Link to the CSS file -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <form id="multiStepForm">
+    <!-- Step 1 -->
+    <div class="form-container">
+      <div class="form-step" id="step1">
+        <label for="firstName">First Name <span class="star">*</span></label>
+        <input type="text" id="firstName" name="firstName" required>
+
+        <label for="lastName">Last Name <span class="star">*</span></label>
+        <input type="text" id="lastName" name="lastName" required>
+
+        <label for="email1">Email <span class="star">*</span></label>
+        <input type="email" id="email1" name="email" required>
+
+        <button type="button" onclick="nextStep(2)">Next</button>
+      </div>
+    
+      <!-- Step 2 -->
+<div class="form-step" id="step2" style="display:none;">
+  <label for="streetAddress">Street Address <span class="star">*</span></label>
+  <input type="text" id="streetAddress" name="streetAddress" required>
+
+  <label for="mobilePhone">Mobile Phone Number <span class="star">*</span></label>
+  <input type="tel" id="mobilePhone" name="mobilePhone" required pattern="[0-9]{10}" placeholder="1234567890">
+
+  <label for="age">Age</label>
+  <select id="age" name="age">
+    <option value="under18">Under 18</option>
+    <option value="18plus">18+</option>
+    <option value="18-25">18-25</option>
+    <option value="25-40">25-40</option>
+    <option value="40plus">40+</option>
+  </select>
+
+
+  <label for="dob">Date of Birth <span class="star">*</span></label>
+  <input type="date" id="dob" name="dob" required>
+
+  <button type="button" onclick="previousStep(1)">Previous</button>
+  <button type="button" onclick="nextStep(3)">Next</button>
+</div>
+
+    
+      <!-- Step 3 (Final Step) -->
+<div class="form-step" id="step3" style="display:none;">
+  <label for="businessType">What business are you into</label>
+  <select id="businessType" name="businessType">
+    <option value="Solar Installation">Solar Installation</option>
+    <option value="Electrical Installation">Electrical Installation</option>
+    <option value="E-commerce Business">E-commerce Business</option>
+  </select>
+
+  <label for="referralSource">From where did you hear about us</label>
+  <select id="referralSource" name="referralSource">
+    <option value="Facebook">Facebook</option>
+    <option value="Instagram">Instagram</option>
+    <option value="Through Paid Ad">Through Paid Ad</option>
+    <option value="Personal Outreach">Personal Outreach</option>
+  </select>
+
+
+  <label for="employmentRole">Employment Role:</label>
+<div>
+    <input type="radio" id="manager" name="employmentRole" value="Manager" required>
+    <label for="Manager">Manager</label>
+</div>
+<div>
+    <input type="radio" id="businessOwner" name="employmentRole" value="Business Owner" required>
+    <label for="Business Owner">Business Owner</label>
+</div>
+<div>
+    <input type="radio" id="headOfSales" name="employmentRole" value="Head of Sales" required>
+    <label for="Head of Sales">Head of Sales</label>
+</div>
+
+
+  <button type="button" onclick="previousStep(2)">Previous</button>
+  <button type="button" onclick="submitForm()">Submit</button>
+</div>
+
+    </div>
+  </form>
+
+  <script src="./scripts.js"></script>
+</body>
+</html>
